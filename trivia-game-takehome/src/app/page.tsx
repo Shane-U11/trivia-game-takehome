@@ -1,7 +1,11 @@
 import HomePage from "./components/HomePage";
+import "./globals.css";
 
 export default function Home() {
   return (
-   <div> <HomePage/> </div>
+    <div id="background-image">
+      <HomePage />
+    </div>
   );
 }
+
