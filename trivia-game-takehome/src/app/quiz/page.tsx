@@ -3,6 +3,7 @@ import { Grid, Button, Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import "../globals.css";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -35,10 +36,7 @@ const Quiz = () => {
                 const responseResults = response.results.map((data: any) => {
                     const correctAnswer = data.correct_answer
                     const incorrectAnswers = data.incorrect_answers
-                    // console.log('C', correctAnswer)
-                    // console.log('I', incorrectAnswers)
                     const answersArr = shuffleArray([correctAnswer, ...incorrectAnswers])
-                    // console.log('HERE', answersArr, correctAnswer)
                     return {
                         question: data.question,
                         correct_answer: correctAnswer,
@@ -73,7 +71,9 @@ const Quiz = () => {
     }
 
     if (questions.length === 0) {
-        return <div>Loading...</div>
+        return <div id='background-image'>
+            Loading...
+            </div>
     }
 
     const currentQuestion = questions[currentQuestionIndex]
